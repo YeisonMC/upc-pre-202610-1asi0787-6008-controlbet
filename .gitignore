@@ -1,4 +1,6 @@
 # Archivos temporales
+desktop.ini
+**/desktop.ini
 *.tmp
 *.bak
 *.log
