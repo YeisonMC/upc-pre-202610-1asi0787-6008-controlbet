@@ -1,0 +1,21 @@
+# Archivos temporales
+*.tmp
+*.bak
+*.log
+
+# Archivos de Word temporales
+~$*.docx
+~$*.pptx
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# SQL Server / backups pesados
+*.bak
+*.mdf
+*.ldf
+
+# Carpetas temporales
+temp/
+backup/
