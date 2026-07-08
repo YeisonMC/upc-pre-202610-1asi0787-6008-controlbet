@@ -1,0 +1,875 @@
+{
+  "modelName": "BetCore DB NoSQL - Validaciones Hackolade",
+  "collections": [
+    {
+      "collectionName": "apuestas",
+      "type": "object",
+      "properties": [
+        {
+          "code": "",
+          "name": "_id",
+          "isActivated": true,
+          "type": "string",
+          "properties": [],
+          "GUID": "5ffdf6ec-ab64-4fdd-b523-b37c69dd8ad0",
+          "required": true,
+          "description": "Identificador único del documento.",
+          "minLength": 1,
+          "maxLength": 50
+        },
+        {
+          "code": "",
+          "name": "id_apuesta",
+          "isActivated": true,
+          "type": "integer",
+          "properties": [],
+          "GUID": "4d3428b5-c208-472e-be04-02df2105c9d8",
+          "required": true,
+          "description": "Identificador interno de la apuesta.",
+          "minimum": 1
+        },
+        {
+          "code": "",
+          "name": "codigo_ticket",
+          "isActivated": true,
+          "type": "string",
+          "properties": [],
+          "GUID": "83b0f4b3-56e8-4b3a-a8b0-56073de00f86",
+          "required": true,
+          "description": "Código único del ticket de apuesta.",
+          "minLength": 8,
+          "maxLength": 20
+        },
+        {
+          "code": "",
+          "name": "usuario",
+          "isActivated": true,
+          "type": "document",
+          "properties": [
+            {
+              "code": "",
+              "name": "id_usuario",
+              "isActivated": true,
+              "type": "integer",
+              "properties": [],
+              "GUID": "60811236-f318-4a09-be1b-0fdf0eacb00e",
+              "required": true,
+              "description": "Identificador del usuario que realizó la apuesta.",
+              "minimum": 1
+            },
+            {
+              "code": "",
+              "name": "nombre_completo",
+              "isActivated": true,
+              "type": "string",
+              "properties": [],
+              "GUID": "2e485899-aa99-4cc1-b4c6-83f85dbc76f4",
+              "required": true,
+              "description": "Nombre completo del usuario.",
+              "minLength": 3,
+              "maxLength": 100
+            },
+            {
+              "code": "",
+              "name": "tipo_documento",
+              "isActivated": true,
+              "type": "string",
+              "properties": [],
+              "GUID": "0944527e-18a1-447b-a8a8-7579e5274216",
+              "required": true,
+              "enum": [
+                "DNI",
+                "CE",
+                "PASAPORTE"
+              ],
+              "description": "Tipo de documento del usuario.",
+              "minLength": 2,
+              "maxLength": 15
+            },
+            {
+              "code": "",
+              "name": "numero_documento",
+              "isActivated": true,
+              "type": "string",
+              "properties": [],
+              "GUID": "63018910-ba75-4ed1-8193-0b8a0bf5bfaa",
+              "required": true,
+              "description": "Número de documento del usuario.",
+              "minLength": 8,
+              "maxLength": 12
+            },
+            {
+              "code": "",
+              "name": "correo",
+              "isActivated": true,
+              "type": "string",
+              "properties": [],
+              "GUID": "7a6a5cfa-7906-4326-8327-4b8672e997da",
+              "required": false,
+              "format": "email",
+              "description": "Correo electrónico del usuario.",
+              "maxLength": 120
+            }
+          ],
+          "GUID": "d05085ef-16fb-4a51-81a8-5043686c8647",
+          "required": true,
+          "description": "Datos resumidos del usuario que realizó la apuesta.",
+          "additionalProperties": false
+        },
+        {
+          "code": "",
+          "name": "local",
+          "isActivated": true,
+          "type": "document",
+          "properties": [
+            {
+              "code": "",
+              "name": "id_local",
+              "isActivated": true,
+              "type": "integer",
+              "properties": [],
+              "GUID": "18abbedf-cd11-4408-9015-8ba845cd86bc",
+              "required": false,
+              "minimum": 1,
+              "description": "Identificador del local."
+            },
+            {
+              "code": "",
+              "name": "nombre_local",
+              "isActivated": true,
+              "type": "string",
+              "properties": [],
+              "GUID": "bb5533ca-6411-4a8b-80c0-6079d4f812c9",
+              "required": false,
+              "description": "Nombre del local.",
+              "minLength": 3,
+              "maxLength": 80
+            },
+            {
+              "code": "",
+              "name": "distrito",
+              "isActivated": true,
+              "type": "string",
+              "properties": [],
+              "GUID": "f2f24775-52d3-4f7a-8c94-aebc5b54dac9",
+              "required": false,
+              "description": "Distrito donde se ubica el local.",
+              "minLength": 3,
+              "maxLength": 80
+            },
+            {
+              "code": "",
+              "name": "ciudad",
+              "isActivated": true,
+              "type": "string",
+              "properties": [],
+              "GUID": "3789ff73-c83b-487f-9adb-b49302aea9e8",
+              "required": false,
+              "description": "Ciudad donde se ubica el local.",
+              "minLength": 3,
+              "maxLength": 80
+            }
+          ],
+          "GUID": "58b1a014-6a13-4ffd-919b-43eb0470e7fa",
+          "required": false,
+          "description": "Datos del local donde se registró la apuesta.",
+          "additionalProperties": false
+        },
+        {
+          "code": "",
+          "name": "selecciones",
+          "isActivated": true,
+          "type": "array",
+          "properties": [
+            {
+              "hackoladeMeta": {},
+              "isActivated": true,
+              "type": "document",
+              "properties": [
+                {
+                  "code": "",
+                  "name": "deporte",
+                  "isActivated": true,
+                  "type": "string",
+                  "properties": [],
+                  "GUID": "7a8b11e0-103c-4ce7-9592-bf6ee9e721f7",
+                  "required": true,
+                  "description": "Deporte relacionado con la apuesta.",
+                  "minLength": 3,
+                  "maxLength": 50
+                },
+                {
+                  "code": "",
+                  "name": "evento",
+                  "isActivated": true,
+                  "type": "string",
+                  "properties": [],
+                  "GUID": "3d8f6cf7-4185-4291-84f6-a9787b1b79fe",
+                  "required": true,
+                  "description": "Evento deportivo seleccionado.",
+                  "minLength": 5,
+                  "maxLength": 120
+                },
+                {
+                  "code": "",
+                  "name": "mercado",
+                  "isActivated": true,
+                  "type": "string",
+                  "properties": [],
+                  "GUID": "afdd7453-45ed-442a-9f21-701f003be860",
+                  "required": true,
+                  "description": "Mercado de apuesta seleccionado.",
+                  "minLength": 3,
+                  "maxLength": 80
+                },
+                {
+                  "code": "",
+                  "name": "opcion",
+                  "isActivated": true,
+                  "type": "string",
+                  "properties": [],
+                  "GUID": "926330cc-a791-4162-9e7a-5037c5d92447",
+                  "required": true,
+                  "description": "Opción elegida por el usuario.",
+                  "minLength": 2,
+                  "maxLength": 100
+                },
+                {
+                  "code": "",
+                  "name": "cuota",
+                  "isActivated": true,
+                  "type": "numeric",
+                  "properties": [],
+                  "GUID": "51249f44-a068-4a2a-aae8-6127827e57e0",
+                  "required": true,
+                  "description": "Valor de la cuota al momento de apostar.",
+                  "minimum": 1,
+                  "maximum": 100
+                },
+                {
+                  "code": "",
+                  "name": "resultado",
+                  "isActivated": true,
+                  "type": "string",
+                  "properties": [],
+                  "GUID": "94f8cf12-7971-48d3-9cc8-b67b0640bbd1",
+                  "required": true,
+                  "enum": [
+                    "PENDIENTE",
+                    "ACERTADO",
+                    "FALLADO",
+                    "ANULADO"
+                  ],
+                  "description": "Resultado de la selección."
+                }
+              ],
+              "additionalProperties": false,
+              "GUID": "fdd7da80-3ae2-45e6-b100-83e4b699d7d5",
+              "arrayItem": true
+            }
+          ],
+          "additionalItems": true,
+          "GUID": "dcdafa0f-cefd-4b38-8635-b615910774f7",
+          "required": true,
+          "description": "Lista de selecciones realizadas en la apuesta.",
+          "minItems": 1
+        },
+        {
+          "code": "",
+          "name": "moneda",
+          "isActivated": true,
+          "type": "document",
+          "properties": [
+            {
+              "code": "",
+              "name": "id_moneda",
+              "isActivated": true,
+              "type": "integer",
+              "properties": [],
+              "GUID": "e325b4a4-9a3e-4bc4-8332-648143ff8088",
+              "required": true,
+              "minimum": 1,
+              "description": "Identificador de la moneda."
+            },
+            {
+              "code": "",
+              "name": "codigo",
+              "isActivated": true,
+              "type": "string",
+              "properties": [],
+              "GUID": "a4bb3f15-0241-404c-823f-f829c138c2f7",
+              "required": true,
+              "enum": [
+                "PEN",
+                "USD",
+                "EUR"
+              ],
+              "description": "Código de la moneda.",
+              "minLength": 3,
+              "maxLength": 3
+            },
+            {
+              "code": "",
+              "name": "simbolo",
+              "isActivated": true,
+              "type": "string",
+              "properties": [],
+              "GUID": "d788dc0f-53ed-4716-89ec-41a3475fe639",
+              "required": false,
+              "enum": [
+                "S/",
+                "$",
+                "€"
+              ],
+              "description": "Símbolo de la moneda.",
+              "minLength": 1,
+              "maxLength": 3
+            }
+          ],
+          "GUID": "df466ff9-38ee-496d-aaec-3fe2f89d45e8",
+          "required": true,
+          "description": "Moneda utilizada en la operación.",
+          "additionalProperties": false
+        },
+        {
+          "code": "",
+          "name": "monto_apostado",
+          "isActivated": true,
+          "type": "numeric",
+          "properties": [],
+          "GUID": "27325000-452d-4f6b-8ac0-a92d8652b8d2",
+          "required": true,
+          "description": "Monto apostado por el usuario.",
+          "minimum": 0
+        },
+        {
+          "code": "",
+          "name": "monto_ganancia",
+          "isActivated": true,
+          "type": "numeric",
+          "properties": [],
+          "GUID": "06d4ea8d-8fdc-4e88-a2d5-bda948f60bcd",
+          "required": false,
+          "description": "Monto ganado cuando corresponda.",
+          "minimum": 0
+        },
+        {
+          "code": "",
+          "name": "estado_apuesta",
+          "isActivated": true,
+          "type": "string",
+          "properties": [],
+          "GUID": "42d687d7-9486-41d8-b7d0-51aac9378d56",
+          "required": true,
+          "enum": [
+            "PENDIENTE",
+            "GANADA",
+            "PERDIDA",
+            "ANULADA",
+            "CANCELADA"
+          ],
+          "description": "Estado actual de la apuesta."
+        },
+        {
+          "code": "",
+          "name": "fecha_apuesta",
+          "isActivated": true,
+          "type": "string",
+          "properties": [],
+          "GUID": "35e665b4-b85a-40f0-83a8-fbfe91f53cf4",
+          "required": true,
+          "description": "Fecha y hora de registro de la apuesta.",
+          "format": "date-time"
+        },
+        {
+          "code": "",
+          "name": "created_at",
+          "isActivated": true,
+          "type": "string",
+          "properties": [],
+          "GUID": "0abe0715-0e6a-4d01-950f-99c490d6ed1d",
+          "required": false,
+          "format": "date-time",
+          "description": "Fecha de creación del documento."
+        },
+        {
+          "code": "",
+          "name": "updated_at",
+          "isActivated": true,
+          "type": "string",
+          "properties": [],
+          "GUID": "cf1f61e0-860d-4c11-a997-397e5d8e7e15",
+          "required": false,
+          "format": "date-time",
+          "description": "Fecha de última actualización del documento."
+        },
+        {
+          "code": "",
+          "name": "fuente",
+          "isActivated": true,
+          "type": "string",
+          "properties": [],
+          "GUID": "0f92dff9-a016-4a1c-ae29-2485c71a9bf4",
+          "required": false,
+          "description": "Fuente u origen del registro.",
+          "minLength": 3,
+          "maxLength": 50
+        }
+      ],
+      "definitions": {
+        "type": "definitions",
+        "properties": [],
+        "GUID": "d750f13f-d4b1-4f8f-a564-c39b6c126eb9"
+      },
+      "isActivated": true,
+      "additionalProperties": false,
+      "GUID": "4eac4f1c-44fa-4a80-9792-a97775323768",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "description": "Colección documental para registrar apuestas deportivas con usuario, local, selecciones, moneda, montos, estado y auditoría.",
+      "x-collection-name": "betcore_user_activity",
+      "x-database": "betcore_db_nosql",
+      "id": "https://controlbet.local/schemas/betcore_user_activity.schema.json",
+      "bucketId": "aaca65c0-3553-45d9-9ba0-b155ab1576b8",
+      "hackoladeMeta": {
+        "validationErrors": {}
+      }
+    },
+    {
+      "collectionName": "movimientos_financieros",
+      "type": "object",
+      "properties": [
+        {
+          "code": "",
+          "name": "_id",
+          "isActivated": true,
+          "type": "string",
+          "properties": [],
+          "GUID": "18de60c0-e4c9-4ec9-aff3-616372b16bf3",
+          "required": true,
+          "description": "Identificador único del documento.",
+          "minLength": 1,
+          "maxLength": 50
+        },
+        {
+          "code": "",
+          "name": "id_transaccion",
+          "isActivated": true,
+          "type": "integer",
+          "properties": [],
+          "GUID": "9c2c49b1-90e9-4e93-90aa-22c6aa236fa7",
+          "required": true,
+          "description": "Identificador interno de la transacción financiera.",
+          "minimum": 1
+        },
+        {
+          "code": "",
+          "name": "usuario_id",
+          "isActivated": true,
+          "type": "integer",
+          "properties": [],
+          "GUID": "2110416b-bfad-4e83-8e35-9dc051862b8b",
+          "required": true,
+          "description": "Referencia al usuario relacionado con el movimiento financiero.",
+          "minimum": 1
+        },
+        {
+          "code": "",
+          "name": "apuesta_id",
+          "isActivated": true,
+          "type": "integer",
+          "properties": [],
+          "GUID": "917f7812-f311-4e73-a91a-ce7b381bec28",
+          "required": false,
+          "description": "Referencia a la apuesta relacionada con el movimiento financiero.",
+          "minimum": 1
+        },
+        {
+          "code": "",
+          "name": "moneda",
+          "isActivated": true,
+          "type": "document",
+          "properties": [
+            {
+              "code": "",
+              "name": "codigo",
+              "isActivated": true,
+              "type": "string",
+              "properties": [],
+              "GUID": "dd8628dd-c04a-40b0-83e9-701ccffa426e",
+              "required": true,
+              "enum": [
+                "PEN",
+                "USD",
+                "EUR"
+              ],
+              "description": "Código de la moneda.",
+              "minLength": 3,
+              "maxLength": 3
+            },
+            {
+              "code": "",
+              "name": "simbolo",
+              "isActivated": true,
+              "type": "string",
+              "properties": [],
+              "GUID": "f34cbdd7-c731-4701-9036-63b2ae23bb7b",
+              "required": false,
+              "enum": [
+                "S/",
+                "$",
+                "€"
+              ],
+              "description": "Símbolo de la moneda.",
+              "minLength": 1,
+              "maxLength": 3
+            }
+          ],
+          "GUID": "0eacb661-7794-4166-bbb9-4891eb6bc3bd",
+          "required": true,
+          "description": "Moneda utilizada en la operación.",
+          "additionalProperties": false
+        },
+        {
+          "code": "",
+          "name": "tipo",
+          "isActivated": true,
+          "type": "string",
+          "properties": [],
+          "GUID": "84443f87-a493-4404-abbc-33689de6ba76",
+          "required": true,
+          "description": "Tipo de movimiento financiero.",
+          "enum": [
+            "APUESTA",
+            "DEPOSITO",
+            "RETIRO",
+            "PREMIO",
+            "REEMBOLSO",
+            "COMISION",
+            "AJUSTE"
+          ]
+        },
+        {
+          "code": "",
+          "name": "estado",
+          "isActivated": true,
+          "type": "string",
+          "properties": [],
+          "GUID": "68c72285-e77b-4b11-8945-8bb9d5f7fe2e",
+          "required": true,
+          "description": "Estado del movimiento financiero.",
+          "enum": [
+            "PENDIENTE",
+            "COMPLETADA",
+            "FALLIDA",
+            "RECHAZADA"
+          ]
+        },
+        {
+          "code": "",
+          "name": "monto",
+          "isActivated": true,
+          "type": "numeric",
+          "properties": [],
+          "GUID": "34294237-59bc-4883-aa8d-7d0b0217dbc8",
+          "required": true,
+          "description": "Monto principal del movimiento financiero.",
+          "minimum": 0
+        },
+        {
+          "code": "",
+          "name": "saldo_anterior",
+          "isActivated": true,
+          "type": "numeric",
+          "properties": [],
+          "GUID": "1a08a6cf-7e11-4022-9df5-b37627920f30",
+          "required": false,
+          "description": "Saldo antes de aplicar el movimiento.",
+          "minimum": 0
+        },
+        {
+          "code": "",
+          "name": "saldo_posterior",
+          "isActivated": true,
+          "type": "numeric",
+          "properties": [],
+          "GUID": "eaf15c31-84cc-47c7-bdb2-492faac6bf69",
+          "required": false,
+          "description": "Saldo después de aplicar el movimiento.",
+          "minimum": 0
+        },
+        {
+          "code": "",
+          "name": "comision_aplicada",
+          "isActivated": true,
+          "type": "numeric",
+          "properties": [],
+          "GUID": "d5663eca-52dd-44f3-b8c6-e6742a1738f6",
+          "required": false,
+          "description": "Comisión aplicada al movimiento.",
+          "minimum": 0
+        },
+        {
+          "code": "",
+          "name": "metodo_pago",
+          "isActivated": true,
+          "type": "string",
+          "properties": [],
+          "GUID": "8d6f8d83-6435-4ba4-b50e-aded4c94f1c3",
+          "required": false,
+          "description": "Método de pago utilizado.",
+          "minLength": 3,
+          "maxLength": 60
+        },
+        {
+          "code": "",
+          "name": "numero_comprobante",
+          "isActivated": true,
+          "type": "string",
+          "properties": [],
+          "GUID": "0c302621-3a01-43bf-8773-383bd92fbc86",
+          "required": false,
+          "description": "Número de comprobante de la operación.",
+          "minLength": 4,
+          "maxLength": 30
+        },
+        {
+          "code": "",
+          "name": "descripcion",
+          "isActivated": true,
+          "type": "string",
+          "properties": [],
+          "GUID": "9172f44a-8240-43e2-ba69-f1ad5c40a6e4",
+          "required": false,
+          "description": "Descripción breve del movimiento financiero.",
+          "maxLength": 200
+        },
+        {
+          "code": "",
+          "name": "fecha_operacion",
+          "isActivated": true,
+          "type": "string",
+          "properties": [],
+          "GUID": "d4f1efbb-23af-4f98-ba57-985f053a925a",
+          "required": true,
+          "description": "Fecha principal de la operación financiera.",
+          "format": "date-time"
+        },
+        {
+          "code": "",
+          "name": "created_at",
+          "isActivated": true,
+          "type": "string",
+          "properties": [],
+          "GUID": "f47106d2-92aa-4d1c-9eb3-1c07645c7e75",
+          "required": false,
+          "format": "date-time",
+          "description": "Fecha de creación del documento."
+        },
+        {
+          "code": "",
+          "name": "updated_at",
+          "isActivated": true,
+          "type": "string",
+          "properties": [],
+          "GUID": "1e73a0c7-5d00-4504-851e-7127924d4654",
+          "required": false,
+          "format": "date-time",
+          "description": "Fecha de última actualización del documento."
+        }
+      ],
+      "definitions": {
+        "type": "definitions",
+        "properties": [],
+        "GUID": "3ae7ba50-b954-4820-af02-810a37e99fba"
+      },
+      "isActivated": true,
+      "additionalProperties": false,
+      "GUID": "f1e3cbf1-d5fa-4544-9cfb-1e5d49a9167d",
+      "bucketId": "aaca65c0-3553-45d9-9ba0-b155ab1576b8",
+      "hackoladeMeta": {
+        "validationErrors": {}
+      },
+      "description": "Colección documental para registrar operaciones financieras usando referencias implícitas a usuario y apuesta."
+    }
+  ],
+  "buckets": [
+    {
+      "name": "betcore_db",
+      "type": "bucket",
+      "collectionIds": [
+        "4eac4f1c-44fa-4a80-9792-a97775323768",
+        "f1e3cbf1-d5fa-4544-9cfb-1e5d49a9167d"
+      ],
+      "backgroundColor": {
+        "r": 129,
+        "g": 212,
+        "b": 250,
+        "a": 1
+      },
+      "show": true,
+      "isActivated": true,
+      "GUID": "aaca65c0-3553-45d9-9ba0-b155ab1576b8",
+      "hackoladeMeta": {
+        "validationErrors": {}
+      }
+    }
+  ],
+  "views": [],
+  "relationships": [],
+  "users": [],
+  "diagramViews": [],
+  "idToNameHashTable": {
+    "4eac4f1c-44fa-4a80-9792-a97775323768": "apuestas",
+    "5ffdf6ec-ab64-4fdd-b523-b37c69dd8ad0": "_id",
+    "4d3428b5-c208-472e-be04-02df2105c9d8": "id_apuesta",
+    "83b0f4b3-56e8-4b3a-a8b0-56073de00f86": "codigo_ticket",
+    "d05085ef-16fb-4a51-81a8-5043686c8647": "usuario",
+    "60811236-f318-4a09-be1b-0fdf0eacb00e": "id_usuario",
+    "2e485899-aa99-4cc1-b4c6-83f85dbc76f4": "nombre_completo",
+    "0944527e-18a1-447b-a8a8-7579e5274216": "tipo_documento",
+    "63018910-ba75-4ed1-8193-0b8a0bf5bfaa": "numero_documento",
+    "7a6a5cfa-7906-4326-8327-4b8672e997da": "correo",
+    "58b1a014-6a13-4ffd-919b-43eb0470e7fa": "local",
+    "18abbedf-cd11-4408-9015-8ba845cd86bc": "id_local",
+    "bb5533ca-6411-4a8b-80c0-6079d4f812c9": "nombre_local",
+    "f2f24775-52d3-4f7a-8c94-aebc5b54dac9": "distrito",
+    "3789ff73-c83b-487f-9adb-b49302aea9e8": "ciudad",
+    "dcdafa0f-cefd-4b38-8635-b615910774f7": "selecciones",
+    "7a8b11e0-103c-4ce7-9592-bf6ee9e721f7": "deporte",
+    "3d8f6cf7-4185-4291-84f6-a9787b1b79fe": "evento",
+    "afdd7453-45ed-442a-9f21-701f003be860": "mercado",
+    "926330cc-a791-4162-9e7a-5037c5d92447": "opcion",
+    "51249f44-a068-4a2a-aae8-6127827e57e0": "cuota",
+    "94f8cf12-7971-48d3-9cc8-b67b0640bbd1": "resultado",
+    "df466ff9-38ee-496d-aaec-3fe2f89d45e8": "moneda",
+    "e325b4a4-9a3e-4bc4-8332-648143ff8088": "id_moneda",
+    "a4bb3f15-0241-404c-823f-f829c138c2f7": "codigo",
+    "d788dc0f-53ed-4716-89ec-41a3475fe639": "simbolo",
+    "27325000-452d-4f6b-8ac0-a92d8652b8d2": "monto_apostado",
+    "06d4ea8d-8fdc-4e88-a2d5-bda948f60bcd": "monto_ganancia",
+    "42d687d7-9486-41d8-b7d0-51aac9378d56": "estado_apuesta",
+    "35e665b4-b85a-40f0-83a8-fbfe91f53cf4": "fecha_apuesta",
+    "0abe0715-0e6a-4d01-950f-99c490d6ed1d": "created_at",
+    "cf1f61e0-860d-4c11-a997-397e5d8e7e15": "updated_at",
+    "0f92dff9-a016-4a1c-ae29-2485c71a9bf4": "fuente",
+    "f1e3cbf1-d5fa-4544-9cfb-1e5d49a9167d": "movimientos_financieros",
+    "18de60c0-e4c9-4ec9-aff3-616372b16bf3": "_id",
+    "9c2c49b1-90e9-4e93-90aa-22c6aa236fa7": "id_transaccion",
+    "2110416b-bfad-4e83-8e35-9dc051862b8b": "usuario_id",
+    "917f7812-f311-4e73-a91a-ce7b381bec28": "apuesta_id",
+    "0eacb661-7794-4166-bbb9-4891eb6bc3bd": "moneda",
+    "dd8628dd-c04a-40b0-83e9-701ccffa426e": "codigo",
+    "f34cbdd7-c731-4701-9036-63b2ae23bb7b": "simbolo",
+    "84443f87-a493-4404-abbc-33689de6ba76": "tipo",
+    "68c72285-e77b-4b11-8945-8bb9d5f7fe2e": "estado",
+    "34294237-59bc-4883-aa8d-7d0b0217dbc8": "monto",
+    "1a08a6cf-7e11-4022-9df5-b37627920f30": "saldo_anterior",
+    "eaf15c31-84cc-47c7-bdb2-492faac6bf69": "saldo_posterior",
+    "d5663eca-52dd-44f3-b8c6-e6742a1738f6": "comision_aplicada",
+    "8d6f8d83-6435-4ba4-b50e-aded4c94f1c3": "metodo_pago",
+    "0c302621-3a01-43bf-8773-383bd92fbc86": "numero_comprobante",
+    "9172f44a-8240-43e2-ba69-f1ad5c40a6e4": "descripcion",
+    "d4f1efbb-23af-4f98-ba57-985f053a925a": "fecha_operacion",
+    "f47106d2-92aa-4d1c-9eb3-1c07645c7e75": "created_at",
+    "1e73a0c7-5d00-4504-851e-7127924d4654": "updated_at",
+    "aaca65c0-3553-45d9-9ba0-b155ab1576b8": "betcore_db"
+  },
+  "definitions": {
+    "type": "definitions",
+    "properties": [],
+    "GUID": "714509ad-9113-4293-a3e6-4ade9e57c034"
+  },
+  "polyglotDefinitions": {
+    "type": "polyglotDefinitions",
+    "properties": [],
+    "GUID": "e23e9ce8-b89a-4cb7-9a9b-33c43fa3d826"
+  },
+  "externalDefinitions": {
+    "type": "externalDefinitions",
+    "properties": [],
+    "GUID": "715b6d73-b09f-431f-b4fe-d6756011b7a5"
+  },
+  "sources": [],
+  "decorativeSymbols": [],
+  "businessGlossaries": [],
+  "businessGlossaryTerms": [],
+  "dbVendor": "JSON",
+  "dbVersion": "2019-09",
+  "appTarget": "JSON",
+  "creationTS": "2026-07-04T17:49:45.106Z",
+  "GUID": "4cbd3bf1-4a7f-4fa0-a2cc-8be64a5b7f06",
+  "isLineageEnabled": false,
+  "lastModifTS": "2026-07-04T18:50:24.821Z",
+  "persistenceSchemaVersion": "8",
+  "isCreatedByPlugin": true,
+  "pluginInformation": {
+    "pluginEngineVersion": "1.0.0"
+  },
+  "applicationInformation": {
+    "version": "8.12.1"
+  },
+  "hackoladeMeta": {},
+  "settings": {
+    "centralPane": {
+      "dbLevel": {
+        "erd": [
+          {
+            "GUID": "4eac4f1c-44fa-4a80-9792-a97775323768",
+            "x": 1079.6000000000008,
+            "y": 1412.1333333333337,
+            "width": 390,
+            "height": 760,
+            "color": {}
+          },
+          {
+            "GUID": "f1e3cbf1-d5fa-4544-9cfb-1e5d49a9167d",
+            "x": 1573.1999999999985,
+            "y": 1414.5333333333344,
+            "width": 390,
+            "height": 620,
+            "color": {}
+          }
+        ],
+        "erdDefinitions": {
+          "erd": [],
+          "rootPath": [],
+          "entities": [],
+          "decorativeSymbols": []
+        },
+        "buckets": [
+          {
+            "x": 1015.6000000000008,
+            "y": 1348.1333333333337,
+            "GUID": "aaca65c0-3553-45d9-9ba0-b155ab1576b8"
+          }
+        ],
+        "collapsedNodes": [],
+        "activeRelationship": "",
+        "activeRelationshipFields": {
+          "childField": [],
+          "parentField": []
+        },
+        "selectedCollections": [],
+        "displayColorPicker": false,
+        "graphView": {
+          "erd": [],
+          "buckets": [],
+          "decorativeSymbols": [],
+          "forceLayout": true,
+          "defaultLinkLength": 300
+        },
+        "diagramViews": [],
+        "decorativeSymbols": [],
+        "nestedCollectionsLayout": "horizontal",
+        "options": [],
+        "relationshipUpdateDisabled": false
+      },
+      "collectionLevel": {},
+      "changed": false
+    },
+    "dtDiagram": {
+      "collapsedNodes": [],
+      "shouldDistributeCollections": false
+    }
+  }
+}
